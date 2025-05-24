@@ -20,8 +20,8 @@ def faceBox(faceNet,frame):
     return frame, bboxs
 
 work_directory = os.getcwd()
-faceProto = os.path.join(work_directory,"opencv_face_detector.pbtxt")
-faceModel = os.path.join(work_directory,"opencv_face_detector_uint8.pb")
+faceProto = os.path.join(work_directory,"opencv_face_detector.pbtxt") # network layers
+faceModel = os.path.join(work_directory,"opencv_face_detector_uint8.pb") # weights
 
 ageProto = os.path.join(work_directory,"age_deploy.prototxt")
 ageModel = os.path.join(work_directory,"age_net.caffemodel")
@@ -40,7 +40,7 @@ genderModel = os.path.join(work_directory,"gender_net.caffemodel")
 
 
 
-faceNet=cv2.dnn.readNet(faceModel, faceProto)
+faceNet=cv2.dnn.readNet(faceModel, faceProto) # creating models from weights and network layers
 ageNet=cv2.dnn.readNet(ageModel,ageProto)
 genderNet=cv2.dnn.readNet(genderModel,genderProto)
 
